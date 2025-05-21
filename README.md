@@ -8,6 +8,8 @@ The code in this repository is divided into 3 directories: particleTracking, pop
 - populationModeling includes files used to model populations globally and analyze population distributions  
 - visualization includes code to replicate figures within the manuscript
 
+
+## File descriptions:
 ### particleTracking:  
 The particleTracking directory contains the following files:  
 
