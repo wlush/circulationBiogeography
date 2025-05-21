@@ -13,6 +13,30 @@ The particleTracking directory contains the following files:
 
 ### populationModeling  
 The populationModeling directory contains the following files:  
+- analysis_regions.npz
+  - This file contains individual regions used for analysis of population modeling results.
+- automated_max_multigen.pkl
+  - This file contains a pickled Pandas dataframe containing the locations of biogeographic boundaries
+- cleaned_meow_intersections.npz
+  - Contains the locations and names of intersections of Marine Ecoregions of the World (MEOW) shapefiles with the global coastline.
+  - Multiple intersections (where a single MEOW ecoregion intersected with the coastline multiple times) were removed
+- count_meow_v2.py
+  - Deprecated, will be removed
+- excludePoints.py
+  - Interactively select points to exclude from the analysis; this code was used to exclude the Indo-Pacific from the population model analysis due to issues with boundary-finding on islands
+- fixed_regional_meow_subsets.npz
+  - breaks down MEOW intersection locations based on regions from analysis_regions.npz
+- indoPacific_removePoints.npz
+  - removed points in the Indo-Pacific (removed due to issues with boundary-finding on islands)
+- intersectionPoints.shp
+  - shapefile containing intersections between MEOW and global coastlines
+- jaccard_stats_automated_regional_multiGen.py
+  - Code to determine model performance statistics, contained in automated_max_multigen.pkl
+- make_MEOW_pointList.py
+  - Utility code used to create cleaned_meow_intersections.npz based on intersections between MEOW shapefiles and global coastline
+- simplified_regional_subsets.py
+  - breaks automated boundary-finding results into discrete regions 
 
 ### visualization  
 The visualization directory contains the following files:  
+
