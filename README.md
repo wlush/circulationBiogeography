@@ -1,6 +1,6 @@
-#Circulation and Biogeography:
+# Circulation and Biogeography:
 
-###Code to replicate modeled larval dispersal and neutral population modeling in the paper "Circulation-driven larval dispersal patterns are sufficient to set the location of many coastal biogeographic boundaries" by Will Lush and Jamie Pringle
+### Code to replicate modeled larval dispersal and neutral population modeling in the paper "Circulation-driven larval dispersal patterns are sufficient to set the location of many coastal biogeographic boundaries" by Will Lush and Jamie Pringle
 
 Particle tracking uses TRACMASS, with 1/12 deg. global velocity fields (top 36 depth levels) on the native C-grid from the Copernicus Marine Environmental Monitoring Service (CMEMS).  
 The code in this repository is divided into 3 directories: particleTracking, populationModeling, and visualization.  
