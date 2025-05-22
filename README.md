@@ -3,13 +3,15 @@
 ### Code to replicate modeled larval dispersal and neutral population modeling in the paper "Circulation-driven larval dispersal patterns are sufficient to set the location of many coastal biogeographic boundaries" (Lush and Pringle, 2025)
 
 Particle tracking uses [TRACMASS](https://github.com/TRACMASS/Tracmass), with 1/12 deg. global velocity fields (top 36 depth levels) on the native C-grid from the [Copernicus Marine Environmental Monitoring Service](https://marine.copernicus.eu/) (CMEMS).  
-The code in this repository is divided into 3 directories: particleTracking, populationModeling, and visualization.  
+The code in this repository is divided into 4 directories: connectivityMatrices, particleTracking, populationModeling, and visualization.  
 - particleTracking includes files for building TRACMASS executables/output and files used to create connectivity matrices  
 - populationModeling includes files used to model populations globally and analyze population distributions  
 - visualization includes code to replicate figures within the manuscript
 
 
 ## File descriptions:
+### connectivityMatrices _(directory)_:
+
 ### particleTracking _(directory)_:  
 The particleTracking directory contains the following files:  
 - BIGrun.com
