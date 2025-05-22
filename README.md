@@ -22,8 +22,6 @@ The populationModeling directory contains the following files:
 - cleaned_meow_intersections.npz
   - Contains the locations and names of intersections of Marine Ecoregions of the World (MEOW) shapefiles with the global coastline.
   - Multiple intersections (where a single MEOW ecoregion intersected with the coastline multiple times) were removed
-- count_meow_v2.py
-  - Deprecated, will be removed
 - excludePoints.py
   - Interactively select points to exclude from the analysis; this code was used to exclude the Indo-Pacific from the population model analysis due to issues with boundary-finding on islands
 - fixed_regional_meow_subsets.npz
