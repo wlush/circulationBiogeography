@@ -12,7 +12,19 @@ The code in this repository is divided into 3 directories: particleTracking, pop
 ## File descriptions:
 ### particleTracking:  
 The particleTracking directory contains the following files:  
-
+- BIGrun.com
+  - bash script to iterate over months in a year, create executable for tracmass runs, and run (times run and create/writes log file)
+- seedfiles _(subdirectory)_
+  - contains release locations for individual particle tracking regions as text files (denoted .seed)
+  - _note that this regional breakdown was necessary for older/lower performance hardware_
+- tracmass_preserveState _(subdirectory)_
+  - preserves a working version of TRACMASS and associated code to create and run TRACMASS executables
+    - Makefile
+      - makefile for building TRACMASS executable
+    - Makefile.global
+      - additional dependencies for makefile, included in Makefile above
+    - output_trm _(subdirectory)_
+    
 ### populationModeling  
 The populationModeling directory contains the following files:  
 - analysis_regions.npz
