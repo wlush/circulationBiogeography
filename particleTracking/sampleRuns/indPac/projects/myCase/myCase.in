@@ -1,0 +1,142 @@
+&INIT_NAMELIST_VERSION
+      gridvernum =      6,
+/
+&INIT_GRID_DESCRIPTION
+         gcmname = 'GLOBAL_ANALYSIS_FORECAST_PHY_001_024',
+       gcmsource = 'http://marine.copernicus.eu',
+        gridname = 'ORCA12',
+      gridsource = 'http://www.nemo-ocean.eu/',
+        griddesc = '1/12 deg run for the global Ocean.',
+       indatadir = '/data/delta/willlush/trmTemp/symLinks/',
+       !indatadir = '/data/guppy2/willlush/Mercator/cGrid/trmSymlinks/',
+/
+&INIT_CASE_DESCRIPTION
+        casename = 'Mercator Surface',
+        casedesc = 'Global surface velocity fields',
+/
+&INIT_GRID_SIZE
+             imt =   4320,  !Grid x-dimension
+             jmt =   3059,  !Grid y-dimension
+              km =     50,  !Grid z-dimension
+	 
+             nst =      2,
+         subgrid =      1,  !1 = use subgrid, 0 = don't
+     subgridimin =      1,  !200
+     subgridimax =   1600,  !4320
+     subgridjmin =    500,  !1
+     subgridjmax =   2100,  !3059
+     subgridkmin =      1,
+     subgridkmax =     36,
+     subgridfile = 'templ.asc', !subgrid file
+       subgridid =      0,
+       nperio    =      1, !i trajectories continue on other side of grid 
+/
+&INIT_BASE_TIME
+         basesec =      0,  !Base time
+         basemin =      0,
+        basehour =      0,
+         baseday =      1,
+         basemon =      1,
+        baseyear =      1,
+        jdoffset =      -1,
+/
+&INIT_GRID_TIME
+   fieldsperfile =      1, !velocity fields per datafile (1 for Mercator)
+            ngcm =     24, !Hours btw GCM datasets (24 for Mercator)
+            iter =     10, !Number of iterations between GCM datasets
+          intmax =    365, !Maximum number of GCM fields
+        minveljd =      0,
+        maxveljd = 735963,
+/
+&INIT_START_DATE
+	!DATE IS MM_IN/IN_YYYY
+        startsec =      0,
+        startmin =      0,
+       starthour =     12,
+        startday =      1,
+        startmon =     MM_IN, !start month
+       startyear =   IN_YYYY, !start year
+          noleap =  .true., 
+         startjd =      0,
+          intmin =      1,
+/
+&INIT_RUN_TIME
+         intspin =     31, !number of seeding timesteps
+          intrun =     76, !length of simulation- allow for all parts to run!
+    seedintsdelta =    1, !How often particles will be released
+/
+&INIT_WRITE_TRAJS
+      twritetype =      1,
+  ! kriva:          0 = no writing
+  !                 1 = write at time intervals of gcm datasets (each ints)
+  !                 2 = write at each time iteration
+  !                 3 = write all the time
+  !                 4 = write only start and end positions
+  !                 5 = write at chosen intervals
+  !                 6 = write each spatial grid-crossing 
+           kriva =     2,
+      outdatadir =    'output_trm/',
+     outdatafile =    'outdata',
+ intmininoutfile =     0,
+          intpsi =    10, ! write stream functions and tracer
+/
+&INIT_SEEDING
+             nff =      1, !Follow traj forward (2 is backward, 3 is both ways)
+            isec =      4, !How particles are seeded (distribution)
+	                   !4 is evenly distr. in box
+            idir =      0, !follow both directions (should be set to 0)
+            nqua =      1, !How trajectory number is set (1 is constant number)
+       partquant =      4, !Number of particles (definition set by nqua)
+        ntracmax = 20000000,
+    loneparticle =      0, !0 turns this off
+        seedtype =      2, !1 is box, 2 is list
+            ist1 =   2601, !
+            ist2 =   2601, !
+            jst1 =   2054, !
+            jst2 =   2054, !
+            kst1 =     36,
+            kst2 =     36,
+            tst1 =     0,
+            tst2 =     0, !was -1 for both
+         seeddir =     '../../../seedfiles/', !month/year/case
+        seedfile =     'indPac.seed', !'souPac.seed',
+     varseedfile =      0,
+        seedtime =      0,
+         seedall =      0,
+         seedpos =      1,
+       seedparts =      0,
+     seedpart_id =      0,
+/
+&INIT_KILLZONES
+            nend =      5,
+!            ienw =   -1,  633,   -1,   -1,
+!            iene =    1, 1000, 1000, 1000,
+!            jens =    1,    1,    1,  418,
+!            jenn =  700,  700,    1,  418,
+             timax = 45.0, !length of time (in days) to track particles after release
+/
+&INIT_TEMP_SALT
+           tmin0 =  -50.0,
+           tmax0 =  400.0,
+           smin0 = -500.0,
+           smax0 =  400.0,
+           rmin0 = -100.0,
+           rmax0 =  500.0,
+           tmine =  -50.0,
+           tmaxe =  400.0,
+           smine = -150.0,
+           smaxe =  500.0,
+           rmine = -100.0,
+           rmaxe =  500.0,
+/
+&INIT_DIFFUSION
+              ah =    0.0,
+              av =    0.0,
+/
+&INIT_SEDIMENT
+        partdiam =  0.001,
+            rhos = 2620.0,
+           cwamp =   20.0,
+           twave =    8.0,
+         critvel =    0.1,
+/
