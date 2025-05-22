@@ -1,0 +1,6 @@
+#checks if location is land or not based on value at t-point
+#created 10/25/2018 wgl
+
+import numpy as np
+import pylab as p
+import netCDF4 as nc
