@@ -24,6 +24,8 @@ The particleTracking directory contains the following files:
     - Makefile.global
       - additional dependencies for makefile, included in Makefile above
     - output_trm _(subdirectory)_
+      - subdirectory for output files; outputs to further subdirectory _mycase_
+      - _contains empty subdirectory mycase; used to hold TRACMASS output before processing to connectivity matrices_
     
 ### populationModeling  
 The populationModeling directory contains the following files:  
