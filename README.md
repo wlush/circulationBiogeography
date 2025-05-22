@@ -67,6 +67,11 @@ This directory contains files used to run and analyze the global neutral populat
   - Code to determine model performance statistics, contained in automated_max_multigen.pkl
 - make_MEOW_pointList.py
   - Utility code used to create cleaned_meow_intersections.npz based on intersections between MEOW shapefiles and global coastline
+- populationModel _(subdirectory)_
+  - neutralModel_MPI_3_bashInput.py
+    - main population modeling code; developed to run in parallel via MPI and run from a bash script
+  - run_neutral_model.com
+    - bash script to run population model over multiple parameters (PLDs, analysis regions, seasons)
 - simplified_regional_subsets.py
   - breaks automated boundary-finding results into discrete regions
 - tagToLoc.py
