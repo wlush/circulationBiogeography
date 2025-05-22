@@ -8,7 +8,6 @@ The code in this repository is divided into 4 directories: connectivityMatrices,
 - populationModeling includes files used to model populations globally and analyze population distributions  
 - visualization includes code to replicate figures within the manuscript
 
-
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
 This directory contains files used to create connectivity matrices. Contains the following files:
@@ -58,6 +57,8 @@ This directory contains files used to run and analyze the global neutral populat
   - Interactively select points to exclude from the analysis; this code was used to exclude the Indo-Pacific from the population model analysis due to issues with boundary-finding on islands
 - fixed_regional_meow_subsets.npz
   - breaks down MEOW intersection locations based on regions from analysis_regions.npz
+- fixOffByOne.py
+  - utility code to fix off-by-one error in grid x and y positions (for visualization and alongshore distance calculations)
 - indoPacific_removePoints.npz
   - removed points in the Indo-Pacific (removed due to issues with boundary-finding on islands)
 - intersectionPoints.shp
@@ -67,7 +68,9 @@ This directory contains files used to run and analyze the global neutral populat
 - make_MEOW_pointList.py
   - Utility code used to create cleaned_meow_intersections.npz based on intersections between MEOW shapefiles and global coastline
 - simplified_regional_subsets.py
-  - breaks automated boundary-finding results into discrete regions 
+  - breaks automated boundary-finding results into discrete regions
+- tagToLoc.py
+  - utility code to go from tag (in-code connectivity matrix location) to grid x and y positions
 
 ### visualization _(directory)_:  
 This directory contains code to create visualizations presented in the paper and interactive figures. Contains the following files:  
