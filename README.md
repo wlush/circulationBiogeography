@@ -11,13 +11,14 @@ The code in this repository is divided into 4 directories: connectivityMatrices,
 
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
+This directory contains files used to create connectivity matrices. Contains the following files:
 - chunkPCM.py
   - Makes monthly connectivity matrices for each particle tracking analysis region; uses sql trajectory databases
 - subset_sql.py
   - Utility code to subdivide sql databases for in-memory work
 
 ### particleTracking _(directory)_:  
-The particleTracking directory contains the following files:  
+This directory contains code used to track particles in Mercator velocity fields. Sample TRACMASS runs contain code to build and run TRACMASS for each particle tracking analysis region. Contains the following files:  
 - BIGrun.com
   - bash script to iterate over months in a year, create executable for tracmass runs, and run (times run and create/writes log file)
 - sampleRuns _(subdirectory)_
@@ -45,7 +46,7 @@ The particleTracking directory contains the following files:
   - _note that this regional breakdown was necessary for older/lower performance hardware_
     
 ### populationModeling _(directory)_:  
-The populationModeling directory contains the following files:  
+This directory contains files used to run and analyze the global neutral population model used in this work. Contains the following files:  
 - analysis_regions.npz
   - This file contains individual regions used for analysis of population modeling results.
 - automated_max_multigen.pkl
@@ -69,7 +70,7 @@ The populationModeling directory contains the following files:
   - breaks automated boundary-finding results into discrete regions 
 
 ### visualization _(directory)_:  
-The visualization directory contains the following files:  
+This directory contains code to create visualizations presented in the paper and interactive figures. Contains the following files:  
 - 3spp_alongshore.py
   - creates figure showing species distributions over time for 3 model species in the Gulf of Maine (North America) at generations 0 (initial), 10, 100, and 1000.
 - bar_global.py
