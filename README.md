@@ -14,11 +14,9 @@ The code in this repository is divided into 3 directories: particleTracking, pop
 The particleTracking directory contains the following files:  
 - BIGrun.com
   - bash script to iterate over months in a year, create executable for tracmass runs, and run (times run and create/writes log file)
-- seedfiles _(subdirectory)_
-  - contains release locations for individual particle tracking regions as text files (denoted .seed)
-  - _note that this regional breakdown was necessary for older/lower performance hardware_
-- tracmass_preserveState _(subdirectory)_
-  - preserves a working version of TRACMASS and associated code to create and run TRACMASS executables
+- sampleRuns _(subdirectory)_
+  - sampleRuns contains 5 subdirectories (Atlantic, fulInd _(Indian Ocean)_, indPac _(Indo-Pacific)_, norPac _(north Pacific)_, souPac _(south Pacific)_), each with code to build and run TRACMASS within each of the overlapping particle tracking analysis regions.
+  - The code in the sampleRuns subdirectory uses the following organizational pattern:
     - Makefile
       - makefile for building TRACMASS executable
     - Makefile.global
@@ -26,6 +24,19 @@ The particleTracking directory contains the following files:
     - output_trm _(subdirectory)_
       - subdirectory for output files; outputs to further subdirectory _mycase_
       - _contains empty subdirectory mycase; used to hold TRACMASS output before processing to connectivity matrices_
+    - projects _(subdirectory)_
+      - Makefile.prj
+        - project-specific flags
+      - myCase.in
+        - project-specific inputs
+      - readfield.f95 _and_ setupgrid.f95
+        - code to read in velocity fields and set up model grid
+    - src _(subdirectory)_
+      - source code for TRACMASS (the version of TRACMASS used in this paper was accessed from the TRACMASS github in March 2019)
+    
+- seedfiles _(subdirectory)_
+  - contains release locations for individual particle tracking regions as text files (denoted .seed)
+  - _note that this regional breakdown was necessary for older/lower performance hardware_
     
 ### populationModeling  
 The populationModeling directory contains the following files:  
