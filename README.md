@@ -10,7 +10,11 @@ The code in this repository is divided into 4 directories: connectivityMatrices,
 
 
 ## File descriptions:
-### connectivityMatrices _(directory)_:
+### connectivityMatrices _(directory)_:  
+- chunkPCM.py
+  - Makes monthly connectivity matrices for each particle tracking analysis region; uses sql trajectory databases
+- subset_sql.py
+  - Utility code to subdivide sql databases for in-memory work
 
 ### particleTracking _(directory)_:  
 The particleTracking directory contains the following files:  
