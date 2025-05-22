@@ -10,7 +10,7 @@ The code in this repository is divided into 3 directories: particleTracking, pop
 
 
 ## File descriptions:
-### particleTracking:  
+### particleTracking _(directory)_:  
 The particleTracking directory contains the following files:  
 - BIGrun.com
   - bash script to iterate over months in a year, create executable for tracmass runs, and run (times run and create/writes log file)
@@ -38,7 +38,7 @@ The particleTracking directory contains the following files:
   - contains release locations for individual particle tracking regions as text files (denoted .seed)
   - _note that this regional breakdown was necessary for older/lower performance hardware_
     
-### populationModeling  
+### populationModeling _(directory)_:  
 The populationModeling directory contains the following files:  
 - analysis_regions.npz
   - This file contains individual regions used for analysis of population modeling results.
@@ -62,7 +62,7 @@ The populationModeling directory contains the following files:
 - simplified_regional_subsets.py
   - breaks automated boundary-finding results into discrete regions 
 
-### visualization  
+### visualization _(directory)_:  
 The visualization directory contains the following files:  
 - 3spp_alongshore.py
   - creates figure showing species distributions over time for 3 model species in the Gulf of Maine (North America) at generations 0 (initial), 10, 100, and 1000.
