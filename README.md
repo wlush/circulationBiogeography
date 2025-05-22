@@ -22,8 +22,6 @@ The populationModeling directory contains the following files:
 - cleaned_meow_intersections.npz
   - Contains the locations and names of intersections of Marine Ecoregions of the World (MEOW) shapefiles with the global coastline.
   - Multiple intersections (where a single MEOW ecoregion intersected with the coastline multiple times) were removed
-- count_meow_v2.py
-  - Deprecated, will be removed
 - excludePoints.py
   - Interactively select points to exclude from the analysis; this code was used to exclude the Indo-Pacific from the population model analysis due to issues with boundary-finding on islands
 - fixed_regional_meow_subsets.npz
@@ -41,4 +39,20 @@ The populationModeling directory contains the following files:
 
 ### visualization  
 The visualization directory contains the following files:  
+- 3spp_alongshore.py
+  - creates figure showing species distributions over time for 3 model species in the Gulf of Maine (North America) at generations 0 (initial), 10, 100, and 1000.
+- bar_global.py
+  - Bar plot depicting model performance globally by season and pelagic larval duration (PLD)
+- bar_hemispheres.py
+  - Bar plot depicting model performance broken down by hemisphere for all seasons and PLDs
+- byGeneration.py
+  - Line plot depicting mode performance and number of discrete biogeographic boundaries as a function of generation (initial transients omitted for clarity)
+- ecoregions.exclude.txt
+  - MEOW ecoregions excluded from the analysis in this paper (by ecoregion code)
+- globalBoundPlot_circ.py
+  - Creates global map of model boundaries and 'uncertainty radii' around MEOW/coastline intersection points (for April/May/June larval releases and 30-day PLDs)
+- jaccardAndMeow_eastCoast.py
+  - Plots Jaccard difference against MEOW and model boundaries along the east coast of the United States
+- jaccard_vals_1000gen.npz
+  - Jaccard difference values globally at 1000 generations for all seasons and PLDs
 
