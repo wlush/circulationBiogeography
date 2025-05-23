@@ -4,9 +4,12 @@
 
 Particle tracking uses [TRACMASS](https://github.com/TRACMASS/Tracmass), with 1/12 deg. global velocity fields (top 36 depth levels) on the native C-grid from the [Copernicus Marine Environmental Monitoring Service](https://marine.copernicus.eu/) (CMEMS).  
 The code in this repository is divided into 4 directories: connectivityMatrices, particleTracking, populationModeling, and visualization.  
-- particleTracking includes files for building TRACMASS executables/output and files used to create connectivity matrices  
+- connectivityMatrices contains files used to build the connectivity matrices used in this work.
+- particleTracking includes files for building TRACMASS executables/output
 - populationModeling includes files used to model populations globally and analyze population distributions  
 - visualization includes code to replicate figures within the manuscript
+
+For future replication of this work, the authors recommend utilizing connectivity estimates from [ezFate](https://github.com/JamiePringle/EZfate), which provides precomputed connectivity estimates from lagrangian particle tracking within the same GCM and in the same regions of the coastal ocean. EzFate was developed with input from this project, and provides connectivity estimates with greater temporal and spatial coverage.
 
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
