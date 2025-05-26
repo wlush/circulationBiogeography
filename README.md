@@ -11,6 +11,10 @@ The code in this repository is divided into 4 directories: connectivityMatrices,
 
 For future replication of this work, the authors recommend utilizing connectivity estimates from [ezFate](https://github.com/JamiePringle/EZfate), which provides precomputed connectivity estimates from lagrangian particle tracking within the same GCM and in the same regions of the coastal ocean. EzFate was developed with input from this project, and provides connectivity estimates with greater temporal and spatial coverage.
 
+For the code hosted here, the workflow for obtaining biogeographic boundaries is as follows:
+1. Particle tracking: the first part of this code follows parcels of water, simulating passively-advected larvae, within the top 36 velocity fields from the Mercator Ocean 1/12 deg. global physical model (PSY43R1, [Lellouche et al. 2018](https://doi.org/10.5194/os-14-1093-2018) )
+
+
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
 This directory contains files used to create connectivity matrices. Contains the following files:
