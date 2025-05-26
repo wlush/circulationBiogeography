@@ -89,6 +89,8 @@ This directory contains files used to run and analyze the global neutral populat
   - shapefile containing intersections between MEOW and global coastlines
 - jaccard_stats_automated_regional_multiGen.py
   - Code to determine model performance statistics, contained in automated_max_multigen.pkl
+- makeJaccard_fromPopMatrices_fixed.py
+   - calculates Jaccard difference between all locations within 25km of any given location in the model domain, saves the largest
 - make_MEOW_pointList.py
   - Utility code used to create cleaned_meow_intersections.npz based on intersections between MEOW shapefiles and global coastline
 - populationModel _(subdirectory)_
