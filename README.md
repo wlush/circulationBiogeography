@@ -70,6 +70,8 @@ This directory contains code used to track particles in Mercator velocity fields
 This directory contains files used to run and analyze the global neutral population model used in this work. Contains the following files:  
 - analysis_regions.npz
   - This file contains individual regions used for analysis of population modeling results.
+- automated_boundary_finding_latest.py
+   - Uses DBSCAN clustering algorithm to find single boundary locations (finding the largest Jaccard difference within a cluster)
 - automated_max_multigen.pkl
   - This file contains a pickled Pandas dataframe containing the locations of biogeographic boundaries
 - cleaned_meow_intersections.npz
