@@ -12,8 +12,19 @@ The code in this repository is divided into 4 directories: connectivityMatrices,
 For future replication of this work, the authors recommend utilizing connectivity estimates from [ezFate](https://github.com/JamiePringle/EZfate), which provides precomputed connectivity estimates from lagrangian particle tracking within the same GCM and in the same regions of the coastal ocean. EzFate was developed with input from this project, and provides connectivity estimates with greater temporal and spatial coverage.
 
 For the code hosted here, the workflow for obtaining biogeographic boundaries is as follows:
-1. Particle tracking: the first part of this code follows parcels of water, simulating passively-advected larvae, within the top 36 velocity fields from the Mercator Ocean 1/12 deg. global physical model (PSY43R1, [Lellouche et al. 2018](https://doi.org/10.5194/os-14-1093-2018) )
-
+1. Particle tracking: the first part of this code follows parcels of water, simulating passively-advected larvae, within the top 36 velocity fields from the Mercator Ocean 1/12 deg. global physical model (PSY43R1, [Lellouche et al. 2018](https://doi.org/10.5194/os-14-1093-2018))
+   - Simulated larval particle release locations are specified in .seed files, found in particleTracking>seedfiles.
+   - Larval releases were subdivided into overlapping analysis regions in <><><><><><><><>. These regions were necessary to run this project with the computing resources at the time; future implementations should avoid these analysis subdivisions to reduce complexity and any possible edge effects.
+   - Input parameters for each particle tracking run are specified in 'mycase.in' files, in particleTracking>sampleRuns>projects.
+   - BIGrun.com is a bash script that builds and runs monthly TRACMASS simulations (1 month of larval releases); this code iterates over months within a year, but can easily be extended to iterate over years and analysis regions as well.
+   - Model output is stored as netcdf files, and are stored in particleTracking>sampleRuns>output_trm
+   - Output netcdf files are then turned into .sql databases with indices to speed up creation of connectivity matrices. The authors recommend using a more modern and efficient approach for this step using xarray/dask, rather than the resource-intensive sql approach used here. 
+2. Particle tracking results are used to build connectivity matrices for each season, pelagic larval duration (PLD), and within each overlapping analysis region.
+   -  Trajectory data from the sql output databases was used to build connectivity matrices for each month, PLD, season, and analysis region using connectivityMatrices>chunkPCM.py.
+   -  Monthly connectivity matrices were combined into seasonal connectivity matrices for each analysis region using connectivityMatrices>
+3. Populations were modeled for 'model species' that vary only in initial location. Distributions of model species are used to find where sharp changes occur in alongshore model species assemblage, which are assumed to be analogous to biogeographic boundaries in the real ocean.
+   -  The population model used in this work can be found in populationModeling>populationModel>neutralModel_MPI_3_bashInput.py, which determines the proportion of each model species at each location in the model domain based on the proportion of each model species that settles in that location. (This code is run/iterated over regions/seasons/PLDs using the included bash script populationModeling>populationModel>run_neutral_model.com
+   -  
 
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
