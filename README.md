@@ -24,6 +24,9 @@ For the code hosted here, the workflow for obtaining biogeographic boundaries is
    -  Monthly connectivity matrices were combined into seasonal connectivity matrices for each analysis region using connectivityMatrices>
 3. Populations were modeled for 'model species' that vary only in initial location. Distributions of model species are used to find where sharp changes occur in alongshore model species assemblage, which are assumed to be analogous to biogeographic boundaries in the real ocean.
    -  The population model used in this work can be found in populationModeling>populationModel>neutralModel_MPI_3_bashInput.py, which determines the proportion of each model species at each location in the model domain based on the proportion of each model species that settles in that location. (This code is run/iterated over regions/seasons/PLDs using the included bash script populationModeling>populationModel>run_neutral_model.com)
+   -  Population matrices are used to find Jaccard differences along the coastline using populationModeling>makeJaccard_fromPopMatrices_fixed.py; these Jaccard differences are used to find clusters of model biogeographic boundaries
+   -  Boundary clusters are reduced to single locations using populationModeling>automated_boundary_finding_latest.py
+   -  Model performance statistics are evaluated and saved in jaccard_stats_automated_regional_multiGen.py
 
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
