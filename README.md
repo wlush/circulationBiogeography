@@ -17,8 +17,8 @@ For the code hosted here, the workflow for obtaining biogeographic boundaries is
    - Larval releases were subdivided into overlapping analysis regions in <><><><><><><><>. These regions were necessary to run this project with the computing resources at the time; future implementations should avoid these analysis subdivisions to reduce complexity and any possible edge effects.
    - Input parameters for each particle tracking run are specified in 'mycase.in' files, in particleTracking>sampleRuns>projects.
    - BIGrun.com is a bash script that builds and runs monthly TRACMASS simulations (1 month of larval releases); this code iterates over months within a year, but can easily be extended to iterate over years and analysis regions as well.
-   - Model output is stored as netcdf files, and are stored in particleTracking>sampleRuns>output_trm
-   - Output netcdf files are then turned into .sql databases with indices to speed up creation of connectivity matrices. The authors recommend using a more modern and efficient approach for this step using xarray/dask, rather than the resource-intensive sql approach used here. 
+   - Model output is stored as netcdf files.
+   - Output netcdf files are then turned into .sql databases with indices to speed up creation of connectivity matrices using particleTracking>bash2sql.py, run using the b2s.com bash script. The authors recommend using a more modern and efficient approach for this step using xarray/dask, rather than the resource-intensive sql approach used here. 
 2. Particle tracking results are used to build connectivity matrices for each season, pelagic larval duration (PLD), and within each overlapping analysis region.
    -  Trajectory data from the sql output databases was used to build connectivity matrices for each month, PLD, season, and analysis region using connectivityMatrices>chunkPCM.py.
    -  Monthly connectivity matrices were combined into seasonal connectivity matrices for each analysis region using connectivityMatrices>
