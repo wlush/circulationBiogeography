@@ -13,8 +13,8 @@ For future replication of this work, the authors recommend utilizing connectivit
 
 For the code hosted here, the workflow for obtaining biogeographic boundaries is as follows:
 1. Particle tracking: the first part of this code follows parcels of water, simulating passively-advected larvae, within the top 36 velocity fields from the Mercator Ocean 1/12 deg. global physical model (PSY43R1, [Lellouche et al. 2018](https://doi.org/10.5194/os-14-1093-2018))
-   - Simulated larval particle release locations are specified in .seed files, found in particleTracking>seedfiles.
-   - Larval releases were subdivided into overlapping analysis regions in <><><><><><><><>. These regions were necessary to run this project with the computing resources at the time; future implementations should avoid these analysis subdivisions to reduce complexity and any possible edge effects.
+   - Simulated larval particle release locations are specified in .seed files, found in particleTracking>seedfiles
+   - .Seed files and larval releases were subdivided into overlapping analysis regions in particleTracking>seedLocations.py. These regions were necessary to run this project with the available computational resources at the time; future implementations should avoid these analysis subdivisions to reduce complexity and any possible edge effects.
    - Input parameters for each particle tracking run are specified in 'mycase.in' files, in particleTracking>sampleRuns>projects.
    - BIGrun.com is a bash script that builds and runs monthly TRACMASS simulations (1 month of larval releases); this code iterates over months within a year, but can easily be extended to iterate over years and analysis regions as well.
    - Model output is stored as netcdf files.
@@ -23,7 +23,7 @@ For the code hosted here, the workflow for obtaining biogeographic boundaries is
    -  Trajectory data from the sql output databases was used to build connectivity matrices for each month, PLD, season, and analysis region using connectivityMatrices>chunkPCM.py.
    -  Monthly connectivity matrices were combined into seasonal connectivity matrices for each analysis region using connectivityMatrices>
 3. Populations were modeled for 'model species' that vary only in initial location. Distributions of model species are used to find where sharp changes occur in alongshore model species assemblage, which are assumed to be analogous to biogeographic boundaries in the real ocean.
-   -  The population model used in this work can be found in populationModeling>populationModel>neutralModel_MPI_3_bashInput.py, which determines the proportion of each model species at each location in the model domain based on the proportion of each model species that settles in that location. (This code is run/iterated over regions/seasons/PLDs using the included bash script populationModeling>populationModel>run_neutral_model.com
+   -  The population model used in this work can be found in populationModeling>populationModel>neutralModel_MPI_3_bashInput.py, which determines the proportion of each model species at each location in the model domain based on the proportion of each model species that settles in that location. (This code is run/iterated over regions/seasons/PLDs using the included bash script populationModeling>populationModel>run_neutral_model.com)
 
 ## File descriptions:
 ### connectivityMatrices _(directory)_:  
@@ -35,6 +35,10 @@ This directory contains files used to create connectivity matrices. Contains the
 
 ### particleTracking _(directory)_:  
 This directory contains code used to track particles in Mercator velocity fields. Sample TRACMASS runs contain code to build and run TRACMASS for each particle tracking analysis region. Contains the following files:  
+- b2s.com
+   - bash script to iterate over output netcdf files and convert them to indexed sql databases using bash2SQL.py
+- bash2SQL.py
+   - converts netcdf files (output fromn particle tracking) to indexed sql databases to speed up creation of connectivity matrices.
 - BIGrun.com
   - bash script to iterate over months in a year, create executable for tracmass runs, and run (times run and create/writes log file)
 - sampleRuns _(subdirectory)_
@@ -56,10 +60,11 @@ This directory contains code used to track particles in Mercator velocity fields
         - code to read in velocity fields and set up model grid
     - src _(subdirectory)_
       - source code for TRACMASS (the version of TRACMASS used in this paper was accessed from the TRACMASS github in March 2019)
-    
 - seedfiles _(subdirectory)_
   - contains release locations for individual particle tracking regions as text files (denoted .seed)
   - _note that this regional breakdown was necessary for older/lower performance hardware_
+- seeLocations.py
+   - Code for creating seedfiles and subsetting into analysis regions. Also can be used to visualize locations, analysis regions, and overlaps.
     
 ### populationModeling _(directory)_:  
 This directory contains files used to run and analyze the global neutral population model used in this work. Contains the following files:  
