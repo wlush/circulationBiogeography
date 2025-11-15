@@ -2,6 +2,8 @@
 
 ### Code to replicate modeled larval dispersal and neutral population modeling in the paper "Circulation-driven larval dispersal patterns are sufficient to set the location of many coastal biogeographic boundaries" (Lush and Pringle, 2025)
 
+### Accompanying interactive maps can be found [here](https://wlush.github.io/circulationBiogeography/). 
+
 Particle tracking uses [TRACMASS](https://github.com/TRACMASS/Tracmass), with 1/12 deg. global velocity fields (top 36 depth levels) on the native C-grid from the [Copernicus Marine Environmental Monitoring Service](https://marine.copernicus.eu/) (CMEMS).  
 The code in this repository is divided into 4 directories: connectivityMatrices, particleTracking, populationModeling, and visualization.  
 - connectivityMatrices contains files used to build the connectivity matrices used in this work.
